@@ -23,8 +23,8 @@
 			//divResult.innerHTML = txtbigo.value.length;
 			
 			// http://yedam/model
-			//divResult.innerHTML += "<br> 마지막경로 / 위치 " + txtbigo.value.lastIndexOf("/");
-			//divResult.innerHTML += "<br> 마지막경로명 " + txtbigo.value.substring(txtbigo.value.lastIndexOf("/")+1);
+			divResult.innerHTML += "<br> 마지막경로 / 위치 " + txtbigo.value.lastIndexOf("/");
+			divResult.innerHTML += "<br> 마지막경로명 " + txtbigo.value.substring(txtbigo.value.lastIndexOf("/")+1);
 			
 			//split 키워드 : 모델, 객체, 스트링
 			//var arr = txtbigo.value.split(",");
@@ -35,7 +35,7 @@
 			
 			//replace : 공백 제거
 			txtbigo.value = txtbigo.value.replace(" ","");
-			txtbigo.value = txtbigo.value.replace(\/s\g,"");
+			txtbigo.value = txtbigo.value.replace(/\s/g,"");
 			
 		})
 	}

@@ -14,12 +14,20 @@
 	}
 	function funcAdd(){
 		//배열에 추가하고 배열을 div에 출력
+		txtArr.push(txtFruit.value);
+			result.innerHTML += "<br>" + txtArr;
+		
 	}
 	function funcDelete(){
 		//배열에서 삭제하고 배열을 div에 출력
+		txtArr.pop();
+		result.innerHTML = "<br>" + txtArr;	
+		
 	}	
 	function funcSearch(){
 		//배열에서 검색해서 검색위치를 div출력
+		search = txtFruit.value;
+		result.innerHTML += txtArr.indexOf(search);
 	}		
 </script>
 </head>
