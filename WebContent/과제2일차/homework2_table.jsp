@@ -18,41 +18,43 @@ td {
 <script>
 	window.addEventListener("load", function() {
 		//tr 태그에 더블클릭 이벤트 지정 . 선택한 행을 오른쪽으로 이동
-// 		var trs = document.querySelectorAll("#tbl1 tr");
+		var trs1 = document.querySelectorAll("#tbl1 tr");
+		var trs2 = document.querySelectorAll("#tbl2 tr");
 		var trs = document.getElementsByTagName("tr");
-		var tbl1Body = document.querySelectorAll("#tbl1 tbody");
+
+		var tbl1 = document.querySelectorAll("#tbl1");
 		var tbl2Body = document.querySelectorAll("#tbl2 tbody");
-		for (i = 0; i < trs.length; i++) {
-			trs[i].addEventListener("dblclick", function() {
+
+		for (i = 0; i < trs1.length; i++) {
+			trs1[i].addEventListener("dblclick", function() {
 				tbl2Body[0].appendChild(this);
+				this.removeEventListener("dblclick", arguments.callee);
 				//이벤트 다시 지정 (두번째 테이블에서 이동 이벤트 핸들러 수정)
-				tbl2Body[0].removeEventListener
-				tbl2Body[0].addEventListener("dblclick", function(){
-					tbl1Body[0].appendChild(this);
+				this.addEventListener("dblclick", function() {
+					tbl1[0].appendChild(this);
+					this.removeEventListener("dblclick", arguments.callee);
 				})
 			})
 		}
-		
+
 	})
 </script>
 </head>
 <body>
 	<table id="tbl1">
 		<caption>수강과목</caption>
-		<tbody>
-			<tr>
-				<td>1</td>
-				<td>자바</td>
-			</tr>
-			<tr>
-				<td>2</td>
-				<td>JSP</td>
-			</tr>
-			<tr>
-				<td>3</td>
-				<td>SPRING</td>
-			</tr>
-		</tbody>
+		<tr>
+			<td>1</td>
+			<td>자바</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>JSP</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>SPRING</td>
+		</tr>
 	</table>
 	<table id="tbl2">
 		<caption>선택과목</caption>
