@@ -20,32 +20,34 @@
 				return;
 			}
 		}
+		
 		//이름은 최소 길이가 5글자 이상인지 체크하고 모두 대문자로 변경하여 출력
 		txtName = document.getElementById("mbName").value;
-		if (txtName.length <= 5){
+		if (txtName.length < 5){
 			alert(txtName + "는 5글자 이상 입력해주세요.");
 			return;
 		}
 		result.innerHTML += "<br>" + txtName.toUpperCase();
 		//이메일은 "@"와 "."을 포함하는지 체크하여 true/false 결과 출력 (regexp)
 		txtEmail = document.getElementById("mbEmail").value;
-		regExp = /@\./;
+		regExp = /@+\.+/;
 		result.innerHTML += "<br>"+ regExp.test(txtEmail);
 		
 		//등록일자는 날짜 형식이 맞는지 체크하고 년도는 2015~2019년도 사이인지 체크하여 결과 출력
 		txtDate = document.getElementById("mbDate").value;
 		dateChk = new Date(txtDate);
-		console.log(dateChk);
-		console.log(dateChk.getFullYear());
+ 		console.log(dateChk);
+ 		console.log(dateChk.getFullYear());
 		if(dateChk.getFullYear() > 2015 && dateChk.getFullYear() < 2019){
 			result.innerHTML += "<br>" + dateChk.getFullYear(); 
 		}else{
-			result.innerHTML += "<br> 2015~2019년 사이가 아닙니다.";
+			result.innerHTML += "<br> not between 2015 and 2019";
 		}
+		
 		//홈페이지는 http로 시작하는지 체크하여 결과 출력
 		txtHp = document.getElementById("mbHomepage").value;
 		regExp = /^http/;
-		console.log(regExp.test(txtHp));
+// 		console.log(regExp.test(txtHp));
 		result.innerHTML += "<br>" + regExp.test(txtHp);
 		
 		//if(txtHp.substr(0,4) == "http"){
@@ -53,6 +55,7 @@
 		//}else {
 		//	result.innerHTML += "<br>" + false;
 		//}
+		
 		//성적은 소수점 2자리까지만 입력하였는지 체크하고 아니라면 둘째자리까지만 변경하여 div에 출력 (regexp)
 		txtScore = document.getElementById("mbScore").value;
 		regExp = /^[-]?\d+(?:[.]?[\d]?[\d])?$/; // 음수포함 실수 2자리 제한

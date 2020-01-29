@@ -27,7 +27,7 @@
 	function funcSearch(){
 		//배열에서 검색해서 검색위치를 div출력
 		search = txtFruit.value;
-		result.innerHTML += txtArr.indexOf(search);
+		result.innerHTML += "<br> 검색한 인덱스는 : " + txtArr.indexOf(search);
 	}		
 </script>
 </head>
