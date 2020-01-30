@@ -9,6 +9,7 @@
 		
 		//버튼 클릭 이벤트 지정
 		btnCalc.addEventListener("click", function() {
+			// 날짜 입력은 (yyyy/mm/dd) 형식으로 입력
 			var inD = inDate.value;
 			var dateArr = inD.split("/");
 			var calDate = new Date(dateArr[0],dateArr[1]-1,dateArr[2]);
