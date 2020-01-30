@@ -20,8 +20,10 @@
 	}
 	function funcDelete(){
 		//배열에서 삭제하고 배열을 div에 출력
-		txtArr.pop();
-		result.innerHTML = "<br>" + txtArr;	
+		var selVal = txtArr.indexOf(txtFruit.value);
+				txtArr.splice(selVal, 1);
+				result.innerHTML = "<br>" + txtArr;			
+		
 		
 	}	
 	function funcSearch(){

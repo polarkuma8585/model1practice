@@ -38,7 +38,7 @@
 		dateChk = new Date(txtDate);
  		console.log(dateChk);
  		console.log(dateChk.getFullYear());
-		if(dateChk.getFullYear() > 2015 && dateChk.getFullYear() < 2019){
+		if(dateChk.getFullYear() >= 2015 && dateChk.getFullYear() <= 2019){
 			result.innerHTML += "<br>" + dateChk.getFullYear(); 
 		}else{
 			result.innerHTML += "<br> not between 2015 and 2019";

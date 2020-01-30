@@ -17,10 +17,8 @@
 			console.log(calDate);
 			//입력날짜와 오늘 날짜까지의 일수 계산하여 div에 출력 "남은 일수는 00일입니다."
 			//반올림해서 출력 할 것
-			var year = calDate.getFullYear();
-			var month = calDate.getMonth();
-			var date = calDate.getDate();
-			var a = new Date(year, month, date) - new Date() ; //밀리세컨드 long
+		
+			var a = calDate - new Date() ; //밀리세컨드 long
 			
 			result.innerHTML += "남은 일수는 " + Math.ceil(a/1000/60/60/24)+ "일 입니다.";
 			
