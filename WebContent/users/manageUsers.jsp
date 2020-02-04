@@ -26,7 +26,7 @@ div {
 </style>
 <title>BootstarpManageUsers.jsp</title>
 </head>
-<body>
+<body><!--  -->
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 col-md-12">
