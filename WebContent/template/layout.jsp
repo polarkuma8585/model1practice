@@ -16,7 +16,7 @@ body {
 	background: #f1f1f1;
 }
 
-/* Header/Blog Title */
+/*  Header/Blog Title */
 .header {
 	padding: 30px;
 	text-align: center;
