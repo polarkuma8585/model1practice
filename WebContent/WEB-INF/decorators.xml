@@ -4,5 +4,9 @@
         <pattern>*.do</pattern>
         <pattern>*.jsp</pattern>
     </decorator>
+    <excludes>
+    	<pattern>/ajax/*</pattern>
+    	<pattern>/popup/*</pattern>
+    </excludes>
     <!-- 레이아웃 구분해서 적용  일반사용자 / 관리자 --> 
 </decorators>

@@ -11,8 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.app.board.BoardCommandSelectList;
+import co.yedam.app.board.FileUpload;
 import co.yedam.app.boardAjax.AjaxBoardList;
 import co.yedam.app.boardAjax.AjaxBoardOne;
+import co.yedam.app.users.command.DeleteUsers;
+import co.yedam.app.users.command.GetUsers;
+import co.yedam.app.users.command.GetUsersList;
+import co.yedam.app.users.command.InsertUsers;
+import co.yedam.app.users.command.ManageUsers;
+import co.yedam.app.users.command.UpdateUsers;
 
 @WebServlet("*.do") // localhost/model/ ///.do
 public class NewFrontController extends HttpServlet {
@@ -44,6 +51,17 @@ public class NewFrontController extends HttpServlet {
 		//ajax
 		cont.put("/ajaxBoardList.do", new AjaxBoardList()); // ajax 일때는 .ac 등 다른 컨트롤러를 타도록 정리 
 		cont.put("/ajaxBoardOne.do", new AjaxBoardOne());
+		
+		//사용자 관리
+		cont.put("/ManageUsers.do", new ManageUsers());
+		cont.put("/ajax/InsertUsers.do", new InsertUsers());
+		cont.put("/ajax/UpdateUsers.do", new UpdateUsers());
+		cont.put("/ajax/DeleteUsers.do", new DeleteUsers());
+		cont.put("/ajax/GetUsers.do", new GetUsers());
+		cont.put("/ajax/GetUsersList.do", new GetUsersList());
+		
+		//파일 업로드
+		cont.put("/FileUpload.do", new FileUpload());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)

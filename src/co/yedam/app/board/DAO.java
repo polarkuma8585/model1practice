@@ -18,10 +18,10 @@ import javax.sql.DataSource;
  * @author 정재흠 작성일자 : 2019-11-07 상위 dao 객체
  */
 public class DAO {
-	Connection conn;
-	PreparedStatement pstmt;
-	ResultSet rs;
-	DataSource ds; //커넥션 pool 사용을 위한 데이터 연결 생성 객체
+	protected Connection conn;
+	protected PreparedStatement psmt;
+	protected ResultSet rs;
+	protected DataSource ds; //커넥션 pool 사용을 위한 데이터 연결 생성 객체
 	
 	private String driver = "oracle.jdbc.driver.OracleDriver";
 	private String url = "jdbc:oracle:thin:@192.168.120.129:1521:orcl";
@@ -53,7 +53,7 @@ public class DAO {
 	public void close() {
 		try {
 			if(rs != null) rs.close();
-			if(pstmt != null) pstmt.close();
+			if(psmt != null) psmt.close();
 			if(conn != null) conn.close();
 		}catch(SQLException e) {
 			e.printStackTrace();

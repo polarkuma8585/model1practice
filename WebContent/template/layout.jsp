@@ -109,6 +109,7 @@ body {
 	}
 }
 </style>
+<decorator:head />
 </head>
 <body>
 
@@ -125,6 +126,7 @@ body {
 	<div class="row">
 		<div class="leftcolumn">
 			<div class="card">
+				<h3><decorator:title /></h3>
 				<decorator:body /> <!--  view page가 끼워질 위치  -->
 			</div>			
 		</div>

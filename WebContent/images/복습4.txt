@@ -1,0 +1,195 @@
+192.168.120.129
+
+connection.commit();
+	  rollback();
+	  setAutoCommit(true/false); //jsp는 default autocommit
+	  .close();  //반드시 실행.
+
+
+statement
+매번 sql 실행계획 재생성 및 실행 
+
+preparedstatement
+sql 실행계획 재사용
+가독성이 statement보다 뛰어남.
+
+
+jsp 구문
+
+<% 자바코드 %>
+<%= 변수 or 수식 %> 출력 = out.print();
+<%@ 지시어:page, include 등  %>
+<%! method 선언 %>
+<%-- 주석 --%>
+
+jsp 
+     1. tag
+     2. 내장객체
+     	request
+	response
+	session
+	application
+	page
+	pagecontext
+	config
+JS
+디자인 : 이미지 슬라이더, 메뉴바
+개발 : 입력값 체크 (제약 조건)
+        형변환	
+단점: 웹 브라우저별 호환성이 떨어짐 -> JQuery 개발
+BOM(Browser Object Model)
+- 브라우저 창 제어  
+- window.open(), window.close(), window.moveTo()
+- history.go(-1/1) : 앞뒤 창으로 가기
+	.back()
+	.forward()
+-navigator : OS, device 정보
+-screen : 해상도 
+
+DOM(Document Object Model)
+-브라우저 내의 내용 제어
+-Node = Tag = Element
+DOM API
+- 태그내용 : innerHTML, innerTEXT
+	   tag.속성 = 값 == tag.setProperty(속성, 값)
+	   tag.style.스타일속성 = 값 의 형식으로 태그 속성에 접근가능.
+	   
+-태그생성 : document.createElement(tag)
+-태그추가 : ▷부모tag.appendChild(tag)
+	  ▷부모tag.insertBefore(넣을tag, 위치tag)
+-태그삭제 : ▷부모tag.removeChild(tag)
+-태그검색 : ▷id - document.getElementById("id")
+	  ▷class - document.getElementsByClassName("class")
+	  ▷tagname - document.getElementsByTagName("tagname")
+	  ▷css - document.querySelectorAll("selector")
+	  ▷name - document.getElementsByName("name")
+-이벤트 추가 : addEventListener("이벤트타입", 이벤트 함수 )
+이벤트 전파 : child node의 event실행시 parent node의 이벤트도 자동 실행
+이벤트 전파중단 : 매개변수.stopPropagation();
+
+- 노드 추가/제거
+- 노드 탐색
+- 노드 내용, 속성 변경
+
+기본객체
+- 숫자, 문자, 날짜 제어
+-event : event type
+          - click, mouse, key
+-event handler(이벤트 처리 함수)
+          - addEventListener, removeEventListener
+-event 객체 : target / event source(이벤트가 발생하는 tag)
+          - event 전파 : 자식 tag 의 event가 발생되면 부모 tag의 event도 자동 실행
+          - event 전파중지 : event.stopPropagation()
+-Timing : ▷setInteval
+
+	자바스크립트	자바	                    오라클
+------------------------------------------------------------------------------------------------------------	
+숫자  	number	    	Int, Double,                  number(38) :최대		
+       		    	bigDecimal
+------------------------------------------------------------------------------------------------------------
+문자       String	    	String		       varchar2(4000) :최대
+					       char
+			 		       CLOB(Character Large Object)(2GB):최대
+------------------------------------------------------------------------------------------------------------
+날짜	Date		Date,Timestamp            Date, Timestamp
+------------------------------------------------------------------------------------------------------------
+형변환    String()				      
+            Number()				
+
+'==' 값만 비교
+'===' 값과 type 같이 비교
+
+Client 에서 Server로 넘어오는 모든 정보는 String
+String method 숙지
+
+"use strict";
+- javascript 내에서 변수를 반드시 선언해야 쓸 수 있도록 강제하는 코드.
+
+let 
+- 블록 내에서만 사용이 가능한 변수 
+- 전역 변수와 변수명이 같아도 블록외 전역변수의 값에는 영향을 미치지 않는다.
+
+
+
+
+JSTL : JAVA STANDARD TAG LIBRARY
+
+EL : Expression Language 표현식 
+${변수}
+<%= %> 을 대체
+null 체크, 형변환에 신경쓸 필요 없이 사용가능
+
+
+ajax : Async(비동기) Javascript XML
+- client -> server 의 요청이 완료/응답이 있어야만 가능한 것이 동기(sync) 방식
+- client -> server 의 요청이 있고 응답을 기다리지 않고 처리하는 것이 비동기(Async) 방식
+- data 만 주고 받음
+- XML : 타기종, 언어, OS간 데이터를 주고 받기 위해 만들어짐.
+- JSON : key 와 name 필드를 가진 데이터 전송 형태 
+           {key:값,name:값} 의 형태
+- 브라우저 내의 XHR엔진 객체 생성: XMLHttpRequest()
+  ▷readyState 이벤트 
+     this.readyState == 4 (서버응답 완료)
+     this.status == 200 (정상실행)
+  ▷open() : 서버 연결  - 1
+  ▷send() - 2 - 3
+
+JSON-lib
+lib file은 Webcontents 밑의 WEB-INF 안에 카피
+  client -> server java
+    js	      JAVA
+String -> Object :  JSON.parse()
+Object -> String :  JSON.stringify()
+
+list -> "[ ]"
+Dto, Map -> "{ }"
+
+$("[name=frm]")[0].reset() : jquery 객체를 [0], .get(0) 을 이용해 자바스크립트 함수인 reset() 함수 이용가능
+
+$(frm).serialize() : $() 를 통해 자바스크립트 DOM을 jquery 객체로 바꿔 jquery함수 이용 가능
+
+
+was (Web Application Server)
+client -> view.jsp 요청(request) ->was가 view_jsp.class, view_jsp.java 컴파일
+ ->html변환 -> client에게 응답(response)
+
+request 객체는 response 객체가 완료되면 소멸.
+session 객체(접속정보)는 브라우저 종료시 소멸.
+
+
+java
+자료를 담는 구조
+	List : 순차적
+		.add(dto) 
+		.get(index) 
+		.set(index, dto) 
+		.remove(index)
+	Set : 중복값 없는 집합
+		
+	Map<Key,Value> : 검색용 
+		.put(K,V)
+		.get(K,V)
+		.remove(K)
+
+preparecall -- 프로시져 불러올때
+
+frontcontroller : client 의 모든 요청을 하나의 서블릿에서 처리
+
+파일 업로드
+file
+input stream
+output stream
+copy
+
+1. cos.jar - multiple 지원 안됨
+2. Apache Commons Upload  - 한번에 여러개의 파일 업로드 가능
+
+
+CSS
+
+font-size 는 기본 body 에서만 정해준 후
+나머지 크기는 그 크기를 기준으로 em 을 통해 배수로 정하는 것을 권장.
+
+CSS적용시 하나의 태그에 여러개의 클래스도 적용가능
+
+bootstrap CSS확장 라이브러리
