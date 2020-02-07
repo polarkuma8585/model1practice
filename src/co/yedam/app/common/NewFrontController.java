@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.yedam.app.ajax.GetDeptCnt;
 import co.yedam.app.board.BoardCommandSelectList;
 import co.yedam.app.board.FileUpload;
 import co.yedam.app.boardAjax.AjaxBoardList;
@@ -60,8 +61,12 @@ public class NewFrontController extends HttpServlet {
 		cont.put("/ajax/GetUsers.do", new GetUsers());
 		cont.put("/ajax/GetUsersList.do", new GetUsersList());
 		
+		//ajax chart
+		cont.put("/ajax/GetDeptCnt.do", new GetDeptCnt());
+		
 		//파일 업로드
 		cont.put("/FileUpload.do", new FileUpload());
+		
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
